@@ -38,3 +38,7 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 
 # Expose port
+EXPOSE $PORT
+
+# Bootstrap app
+CMD ["node", "bin/serve.js"]

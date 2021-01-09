@@ -2,4 +2,6 @@
 const express = require('express');
 const morgan = require('morgan');
 
-const server = 
+const server = express();
+server.use(morgan('common'));
+se

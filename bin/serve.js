@@ -4,4 +4,6 @@ const morgan = require('morgan');
 
 const server = express();
 server.use(morgan('common'));
-se
+server.use(express.static('./dist'));
+
+const p

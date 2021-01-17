@@ -8,4 +8,7 @@ server.use(express.static('./dist'));
 
 const port = process.env.PORT || 9000;
 const app = server.listen(port, () => {
-  console.log(`Serv
+  console.log(`Server listening on port ${port}`);
+});
+
+['SIGTERM', '

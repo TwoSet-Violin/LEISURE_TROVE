@@ -7,4 +7,5 @@ server.use(morgan('common'));
 server.use(express.static('./dist'));
 
 const port = process.env.PORT || 9000;
-const app 
+const app = server.listen(port, () => {
+  console.log(`Serv

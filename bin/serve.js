@@ -11,4 +11,5 @@ const app = server.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
 
-['SIGTERM', '
+['SIGTERM', 'SIGINT'].forEach((signal) => {
+  process.on(sign

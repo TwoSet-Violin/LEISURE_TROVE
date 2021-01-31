@@ -13,4 +13,5 @@ const app = server.listen(port, () => {
 
 ['SIGTERM', 'SIGINT'].forEach((signal) => {
   process.on(signal, () => {
-    console.info(`${signal} 
+    console.info(`${signal} signal received, terminating server`);
+ 

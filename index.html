@@ -24,3 +24,53 @@
           KF-EdgeML
         </h1>
         <p class="subtitle">
+          Selamat datang di Kodesiana EdgeML! Aplikasi untuk membuat model <i>deep learning</i> secara visual.
+        </p>
+
+        <div class="container">
+          <div class="message is-primary" v-if="isActive">
+            <div class="message-body">
+              Kodesiana EdgeML saat ini dalam tahap <b>alpha</b>. Aplikasi mungkin tidak berjalan dengan baik pada
+              browser
+              Anda. Gunakan browser berbasis Chromium seperti Chrome, Edge, dan Opera untuk mendapatkan pengalaman
+              terbaik.
+              Berikan kritik dan saran melalui link berikut:<br />
+              <button class="button is-primary mt-3 is-small">FEEDBACK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pt-0">
+      <div class="container box">
+        <h2 class="subtitle">Data Modelling</h2>
+        <div class="columns">
+          <div class="column is-6">
+            <button class="button is-primary is-light" v-on:click="run">Run Training</button>
+            <button class="button is-link is-light" v-on:click="run2">Load Model</button>
+            <button class="button is-link is-light" v-on:click="save">Save Model</button>
+          </div>
+          <div class="column"></div>
+          <div class="column columns">
+            <div class="column">
+              <div class="file is-info is-light">
+                <label class="file-label">
+                  <input class="file-input" type="file" id="manifestFile" ref="manifestFile"
+                    v-on:change="modelManifestHandler()">
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      Upload manifest (JSON)...
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="column">
+              <div class="file is-info is-light">
+                <label class="file-label">
+                  <input class="file-input" type="file" id="weightsFile" ref="weightsFile"
+                    v-on:change="modelWeightsHandler()">

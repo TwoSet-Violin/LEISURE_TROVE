@@ -2,4 +2,4 @@
 
 Selamat datang di Kodesiana EdgeML! Aplikasi untuk membuat model deep learning secara visual.
 
-Kodes
+Kodesiana EdgeML saat ini dalam tahap alpha.

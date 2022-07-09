@@ -1,3 +1,3 @@
 # KF-EdgeML
 
-Selamat datang di
+Selamat datang di Kodesiana EdgeML! Aplikasi untuk memb

@@ -6,3 +6,5 @@ import * as modelling from './modules/modelling';
 interface UIModel {
   manifestFile: File | null,
   weightsFile: File | null,
+  counter: number,
+  isActive: b

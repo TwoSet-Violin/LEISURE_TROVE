@@ -7,4 +7,8 @@ interface UIModel {
   manifestFile: File | null,
   weightsFile: File | null,
   counter: number,
-  isActive: b
+  isActive: boolean
+}
+
+const KFEdgeApp = Vue.extend({
+  

@@ -11,4 +11,6 @@ interface UIModel {
 }
 
 const KFEdgeApp = Vue.extend({
-  
+  data(): UIModel {
+    return {
+ 

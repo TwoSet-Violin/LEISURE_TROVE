@@ -14,4 +14,7 @@ const KFEdgeApp = Vue.extend({
   data(): UIModel {
     return {
       manifestFile: null,
-      weightsF
+      weightsFile: null,
+
+      counter: 0,
+      isActive: true

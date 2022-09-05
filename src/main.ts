@@ -17,4 +17,9 @@ const KFEdgeApp = Vue.extend({
       weightsFile: null,
 
       counter: 0,
-      isActive: true
+      isActive: true,
+    };
+  },
+
+  methods: {
+    run() 

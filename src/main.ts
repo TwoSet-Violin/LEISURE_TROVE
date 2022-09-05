@@ -26,4 +26,5 @@ const KFEdgeApp = Vue.extend({
       modelling.run();
     },
 
-    asy
+    async run2() {
+      if (!this.manifestFile || !this

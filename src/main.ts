@@ -22,4 +22,8 @@ const KFEdgeApp = Vue.extend({
   },
 
   methods: {
-    run() 
+    run() {
+      modelling.run();
+    },
+
+    asy

@@ -27,4 +27,6 @@ const KFEdgeApp = Vue.extend({
     },
 
     async run2() {
-      if (!this.manifestFile || !this
+      if (!this.manifestFile || !this.weightsFile) {
+        Swal.fire({
+          title: '

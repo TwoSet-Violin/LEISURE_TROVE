@@ -29,4 +29,5 @@ const KFEdgeApp = Vue.extend({
     async run2() {
       if (!this.manifestFile || !this.weightsFile) {
         Swal.fire({
-          title: '
+          title: 'No file choosen',
+          text: 'Pleas

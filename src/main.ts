@@ -31,4 +31,7 @@ const KFEdgeApp = Vue.extend({
         Swal.fire({
           title: 'No file choosen',
           text: 'Please upload your manifest and weights',
-          ico
+          icon: 'error',
+        });
+
+        return;

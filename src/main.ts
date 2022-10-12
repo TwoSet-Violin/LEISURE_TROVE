@@ -37,4 +37,4 @@ const KFEdgeApp = Vue.extend({
         return;
       }
 
-      const result = await modelling.l
+      const result = await modelling.loadModel(this.manifestFile, this.weightsFile);

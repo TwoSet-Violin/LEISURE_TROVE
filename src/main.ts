@@ -39,4 +39,5 @@ const KFEdgeApp = Vue.extend({
 
       const result = await modelling.loadModel(this.manifestFile, this.weightsFile);
       const a = result.reduce((prev, current) => `${prev},${current}`, '');
-      Swal.
+      Swal.fire({
+        title: 'Model uploaded!',

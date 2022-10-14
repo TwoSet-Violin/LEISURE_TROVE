@@ -38,3 +38,4 @@ const KFEdgeApp = Vue.extend({
       }
 
       const result = await modelling.loadModel(this.manifestFile, this.weightsFile);
+      const a = result.reduce((prev, cur

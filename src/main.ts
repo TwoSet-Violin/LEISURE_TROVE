@@ -41,4 +41,6 @@ const KFEdgeApp = Vue.extend({
       const a = result.reduce((prev, current) => `${prev},${current}`, '');
       Swal.fire({
         title: 'Model uploaded!',
-        text: `Model successfully loaded! Predic
+        text: `Model successfully loaded! Predicted: ${a}`,
+        icon: 'success',
+     

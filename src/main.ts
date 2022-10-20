@@ -43,4 +43,8 @@ const KFEdgeApp = Vue.extend({
         title: 'Model uploaded!',
         text: `Model successfully loaded! Predicted: ${a}`,
         icon: 'success',
-     
+      });
+    },
+
+    modelManifestHandler() {
+      const e 

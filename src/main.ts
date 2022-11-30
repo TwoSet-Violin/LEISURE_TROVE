@@ -47,4 +47,4 @@ const KFEdgeApp = Vue.extend({
     },
 
     modelManifestHandler() {
-      const e 
+      const e = this.$refs.manifestFile as HTMLInputEle

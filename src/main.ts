@@ -49,4 +49,5 @@ const KFEdgeApp = Vue.extend({
     modelManifestHandler() {
       const e = this.$refs.manifestFile as HTMLInputElement;
       if (!e.files?.length) return;
- 
+      const file = e.files.item(0);
+     

@@ -53,4 +53,5 @@ const KFEdgeApp = Vue.extend({
       this.manifestFile = file;
     },
 
-    m
+    modelWeightsHandler() {
+      const e = this

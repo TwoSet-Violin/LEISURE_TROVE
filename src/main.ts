@@ -56,4 +56,5 @@ const KFEdgeApp = Vue.extend({
     modelWeightsHandler() {
       const e = this.$refs.weightsFile as HTMLInputElement;
       if (!e.files?.length) return;
-   
+      const file = e.files.item(0);
+      this.weights

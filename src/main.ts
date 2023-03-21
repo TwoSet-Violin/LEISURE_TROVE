@@ -61,4 +61,9 @@ const KFEdgeApp = Vue.extend({
     },
 
     save() {
-    
+      modelling.save();
+    },
+  },
+});
+
+// eslint-disabl

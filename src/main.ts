@@ -66,4 +66,5 @@ const KFEdgeApp = Vue.extend({
   },
 });
 
-// eslint-disabl
+// eslint-disable-next-line no-new
+new KFEdgeApp({ el: '#

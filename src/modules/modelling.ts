@@ -82,3 +82,59 @@ function convertToTensor(data: InputData[]): ConvertedInputs {
 
     return {
       inputs: normalizedInputs,
+      labels: normalizedLabels,
+      // Return the min/max bounds so we can use them later.
+      inputMax,
+      inputMin,
+      labelMax,
+      labelMin,
+    };
+  });
+}
+
+async function trainModel(inputs: tf.Tensor<tf.Rank>, labels: tf.Tensor<tf.Rank>) {
+  // Prepare the model for training.
+  model.compile({
+    optimizer: tf.train.adam(),
+    loss: tf.losses.meanSquaredError,
+    metrics: ['mse'],
+  });
+
+  const batchSize = 32;
+  const epochs = 50;
+
+  const container = document.getElementById('progress') as tfvis.Drawable;
+  return model.fit(inputs, labels, {
+    batchSize,
+    epochs,
+    shuffle: true,
+    callbacks: tfvis.show.fitCallbacks(
+      container,
+      ['loss', 'mse'],
+      { height: 200, callbacks: ['onEpochEnd'] },
+    ),
+  });
+}
+
+function testModel(inputData: InputData[], normalizationData: ConvertedInputs) {
+  const {
+    inputMax, inputMin, labelMin, labelMax,
+  } = normalizationData;
+
+  // Generate predictions for a uniform range of numbers between 0 and 1;
+  // We un-normalize the data by doing the inverse of the min-max scaling
+  // that we did earlier.
+  const [xs, preds] = tf.tidy(() => {
+    const testX = tf.linspace(0, 1, 100);
+    const predictions = model.predict(testX.reshape([100, 1])) as tf.Tensor<tf.Rank>;
+
+    const unNormXs = testX
+      .mul(inputMax.sub(inputMin))
+      .add(inputMin);
+
+    const unNormPreds = predictions
+      .mul(labelMax.sub(labelMin))
+      .add(labelMin);
+
+    // Un-normalize the data
+    return [unNormXs.dataSync(), unNormPreds.dataSync()];

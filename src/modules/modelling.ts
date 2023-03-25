@@ -138,3 +138,44 @@ function testModel(inputData: InputData[], normalizationData: ConvertedInputs) {
 
     // Un-normalize the data
     return [unNormXs.dataSync(), unNormPreds.dataSync()];
+  });
+
+  const predictedPoints = Array.from(xs).map((val, i) => ({ x: val, y: preds[i] }));
+
+  const originalPoints = inputData.map((d) => ({
+    x: d.horsepower, y: d.mpg,
+  }));
+
+  tfvis.render.scatterplot(
+    document.getElementById('evaluation') as tfvis.Drawable,
+    { values: [originalPoints, predictedPoints], series: ['original', 'predicted'] },
+    {
+      xLabel: 'Horsepower',
+      yLabel: 'MPG',
+      height: 300,
+    },
+  );
+}
+
+export async function run(): Promise<void> {
+  // Load and plot the original input data that we are going to train on.
+  const data = await getData();
+  const values = data.map((d) => ({
+    x: d.horsepower,
+    y: d.mpg,
+  }));
+
+  tfvis.render.scatterplot(
+    document.getElementById('data') as tfvis.Drawable,
+    { values },
+    {
+      xLabel: 'Horsepower',
+      yLabel: 'MPG',
+      height: 300,
+    },
+  );
+
+  // More code will be added below
+  // Create the model
+  model = createModel();
+  tfvis.show.modelSummary(document.getElementById('summary') as tfvis.Drawable, model);

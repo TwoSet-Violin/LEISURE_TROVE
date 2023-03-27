@@ -179,3 +179,27 @@ export async function run(): Promise<void> {
   // Create the model
   model = createModel();
   tfvis.show.modelSummary(document.getElementById('summary') as tfvis.Drawable, model);
+
+  // Convert the data to a form we can use for training.
+  const tensorData = convertToTensor(data);
+  const { inputs, labels } = tensorData;
+
+  // Train the model
+  await trainModel(inputs, labels);
+  console.log('Done Training');
+
+  // Make some predictions using the model and compare them to the
+  // original data
+  testModel(data, tensorData);
+}
+
+export async function save(): Promise<void> {
+  await model.save('downloads://my-model-1');
+}
+
+export async function loadModel(manifest: File, weights: File): Promise<Array<number>> {
+  const model2 = await tf.loadLayersModel(tf.io.browserFiles([manifest, weights]));
+  const xs = tf.linspace(0, 1, 10);
+  const preds = model2.predict(xs.reshape([10, 1])) as tf.Tensor<tf.Rank>;
+  return await preds.as1D().array();
+}

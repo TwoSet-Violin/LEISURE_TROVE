@@ -1,3 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl":
+    "baseUrl": "src",
+    "target": "ESNext",
+    "mod

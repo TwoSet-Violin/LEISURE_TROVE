@@ -7,4 +7,6 @@
     "moduleResolution": "Node",
     "strict": true,
     "noEmit": true,
-    "sourceMa
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "esModule

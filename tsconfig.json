@@ -9,4 +9,5 @@
     "noEmit": true,
     "sourceMap": true,
     "noUnusedLocals": true,
-    "esModule
+    "esModuleInterop": true,
+    "resolveJsonModule": tr

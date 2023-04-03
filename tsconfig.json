@@ -15,4 +15,5 @@
     "noUnusedParameters": true,
     "useDefineForClassFields": true,
   },
-  "include
+  "include": ["./src"]
+}
